@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebApplication11.DataAccess.Ilac>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<div>
+    <form asp-action="Index">
+        <div class="row form-group">
+            <div class="col-10">
+                <input type="text" name="SearchString" class="form-control" placeholder="Ara..">
+            </div>
+            <div class="col-2">
+                <input class="btn btn-primary" type="submit" value="Ara" />
+            </div>
+        </div>
+    </form>
+</div>
+<p>
+    <a class="btn  btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                İlaç İsmi
+            </th>
+            <th>
+                Etken İsmi
+            </th>
+            <th>
+                Kullanım Amacı
+            </th>
+            <th>
+                Tedavi İsmi
+            </th>
+            <th>
+                Firma İsmi
+            </th>
+            <th>
+                Doktor
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Detail
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IlacIsmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkenIsmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullanımAmacı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TedaviIsmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirmaIsmiNavigation.FirmaIsmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HastaTCNoNavigation.IlgilenenDoktor)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IlacIsmi">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.IlacIsmi">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IlacIsmi">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

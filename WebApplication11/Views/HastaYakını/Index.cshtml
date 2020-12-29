@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApplication11.DataAccess.HastaYakını>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ad Soyad
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                Hasta T.C
+            </th>
+            <th>
+                Hasta Yakını T.C
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogumTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HastaTC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCNo)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.TCNo">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.TCNo">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TCNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

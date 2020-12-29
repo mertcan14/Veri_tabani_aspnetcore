@@ -1,0 +1,58 @@
+﻿@model WebApplication11.DataAccess.Ilac
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3><b>Silmek istediğinize emin misiniz?</b></h3>
+<div>
+    <h4>Ilac</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            İlaç İsmi:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IlacIsmi)
+        </dd>
+        <dt class="col-sm-2">
+            Etken İsmi:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EtkenIsmi)
+        </dd>
+        <dt class="col-sm-2">
+            Kullanım Amacı:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KullanımAmacı)
+        </dd>
+        <dt class="col-sm-2">
+            Tedavi İsmi:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TedaviIsmi)
+        </dd>
+        <dt class="col-sm-2">
+            Firma:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirmaIsmiNavigation.FirmaIsmi)
+        </dd>
+        <dt class="col-sm-2">
+            Doktor:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HastaTCNoNavigation.IlgilenenDoktor)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IlacIsmi" />
+        <input type="submit" value="Delete" class="btn btn-danger btn-block" /> |
+        <a class="btn btn-light" asp-action="Index">Back to List</a>
+    </form>
+</div>

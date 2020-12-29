@@ -1,0 +1,72 @@
+﻿@model WebApplication11.DataAccess.Hastum
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hasta</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Ad Soyad:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adsoyad)
+        </dd>
+        <dt class = "col-sm-2">
+            Cinsiyet:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cinsiyet)
+        </dd>
+        <dt class = "col-sm-2">
+            Doğum Tarihi:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dogumtarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            Meslek:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Meslek)
+        </dd>
+        <dt class = "col-sm-2">
+            Önceden Geçirdiği Hastalıklar:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Öncedengeçirdiğihastalıklar)
+        </dd>
+        <dt class = "col-sm-2">
+            Adres:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+        <dt class = "col-sm-2">
+            İlgili Doktor:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IlgilenendoktorNavigation.AdSoyad)
+        </dd>
+        <dt class = "col-sm-2">
+            İLgili Hemsire:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IlgilenenhemsireNavigation.AdSoyad)
+        </dd>
+        <dt class = "col-sm-2">
+            T.C No:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tcno)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Tcno">Edit</a> 
+    <a class="btn btn-light" asp-action="Index">Back to List</a>
+</div>

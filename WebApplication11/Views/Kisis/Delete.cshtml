@@ -1,0 +1,46 @@
+﻿@model WebApplication11.DataAccess.Kisi
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3><b>Silmek İstediğinize emin misiniz?</b></h3>
+<div>
+    <h4>Kisi</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Ad Soyad:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AdSoyad)
+        </dd>
+        <dt class = "col-sm-2">
+            Cinsiyet:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cinsiyet)
+        </dd>
+        <dt class = "col-sm-2">
+            Doğum Tarihi:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogumTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            Hastane İsmi:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UygulamaIsmi)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TCNo" />
+        <input type="submit" value="Delete" class="btn btn-danger btn-block" /> 
+        <a class="btn btn-light" asp-action="Index">Back to List</a>
+    </form>
+</div>

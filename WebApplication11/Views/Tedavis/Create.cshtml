@@ -1,0 +1,56 @@
+﻿@model WebApplication11.DataAccess.Tedavi
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Tedavi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Tedavi İsmi:
+                <input asp-for="TedaviIsmi" class="form-control" />
+                <span asp-validation-for="TedaviIsmi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Kullanılan İlaç:
+                <input asp-for="KullanılanIlaç" class="form-control" />
+                <span asp-validation-for="KullanılanIlaç" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Tedavi Süresi:
+                <input asp-for="TedaviSüresi" class="form-control" />
+                <span asp-validation-for="TedaviSüresi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Hasta:
+                <select asp-for="HastaTCNo" class ="form-control" asp-items="ViewBag.HastaTCNo"></select>
+            </div>
+            <div class="form-group">
+                İlgilenen Doktor:
+                <select asp-for="IlgilenenDoktor" class ="form-control" asp-items="ViewBag.IlgilenenDoktor"></select>
+            </div>
+            <div class="form-group">
+                İlgilenen Hemsire:
+                <select asp-for="IlgilenenHemsire" class ="form-control" asp-items="ViewBag.IlgilenenHemsire"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-light" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

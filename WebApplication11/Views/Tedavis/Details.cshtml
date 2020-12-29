@@ -1,0 +1,55 @@
+﻿@model WebApplication11.DataAccess.Tedavi
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tedavi</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tedavi İsmi:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TedaviIsmi)
+        </dd>
+        <dt class = "col-sm-2">
+            Kullanılan İlaç:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KullanılanIlaç)
+        </dd>
+        <dt class = "col-sm-2">
+            Tedavi Süresi:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TedaviSüresi)
+        </dd>
+        <dt class = "col-sm-2">
+            Hasta T.C:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HastaTCNo)
+        </dd>
+        <dt class = "col-sm-2">
+            İlgili Doktor T.C:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IlgilenenDoktorNavigation.TCNo)
+        </dd>
+        <dt class = "col-sm-2">
+            İlgilenen Hemsire T.C:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IlgilenenHemsireNavigation.TCNo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.HastaTCNo">Edit</a> 
+    <a class="btn btn-light" asp-action="Index">Back to List</a>
+</div>

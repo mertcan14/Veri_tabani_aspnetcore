@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebApplication11.DataAccess.Doktor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<div>
+    <form asp-action="Index">
+        <div class="row form-group">
+            <div class="col-10">
+                <input type="text" name="SearchString" class="form-control" placeholder="Ara..">
+            </div>
+            <div class="col-2">
+                <input class="btn btn-primary" type="submit" value="Ara" />
+            </div>
+        </div>
+    </form>
+</div>
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Ad Soyad
+                    </th>
+                    <th>
+                        T.C No
+                    </th>
+                    <th>
+                        Cinsiyet
+                    </th>
+                    <th>
+                        Doğum Tarihi
+                    </th>
+                    <th>
+                        Sifre
+                    </th>
+                    <th>
+                        Çalıştığı Brim
+                    </th>
+                    <th>
+                        İlgilenen Yönetici
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                    <th>
+                        Details
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AdSoyad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TCNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cinsiyet)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DogumTarihi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sifre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CalıstığıBrimNavigation.BölümIsmi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IlgilenenYöneticiNavigation.AdSoyad)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.TCNo">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.TCNo">Details</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TCNo">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
